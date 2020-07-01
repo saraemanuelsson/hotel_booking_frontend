@@ -2,11 +2,11 @@
   <div class="box">
     <div>
         <label>Name:</label>
-        <span>{{ booking.name }}</span>
+        <EditableText :value="booking.name" v-on:edited="editedName"/>
     </div>
     <div>
         <label>Email:</label>
-        <span>{{ booking.email }}</span>
+        <EditableText :value="booking.email" v-on:edited="editedEmail"/>
     </div>
     <div>
         <label for="checkbox">Checked In:</label>
@@ -18,6 +18,7 @@
 
 <script>
 import BookingsService from "../services/BookingsService"
+import EditableText from "./EditableText"
 import { eventBus } from "../main.js"
 
 export default {
@@ -34,7 +35,19 @@ export default {
                 checkedIn: this.booking.checkedIn
             };
             BookingsService.updateBooking(this.booking._id, bookingWithoutId);
+        },
+        editedName(newName) {
+            this.booking.name = newName
+            this.updateBooking()
+        },
+        editedEmail(newEmail) {
+            this.booking.email = newEmail
+            this.updateBooking()
         }
+
+    },
+    components: {
+        EditableText
     }
 };
 </script>
