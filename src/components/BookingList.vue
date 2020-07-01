@@ -10,11 +10,14 @@ import Booking from "./Booking.vue";
 export default {
   data() {
     return {
-      bookings: [{ name: "a" }, { name: "b" }]
+      bookings: []
     };
   },
   components: {
     Booking
+  },
+  mounted(){
+      //this.booking = something;
   }
 };
 </script>
