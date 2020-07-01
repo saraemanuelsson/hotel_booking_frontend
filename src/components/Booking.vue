@@ -2,15 +2,15 @@
   <div class="box">
     <div>
         <label>Name:</label>
-        <p>{{ booking.name }}</p>
+        <span>{{ booking.name }}</span>
     </div>
     <div>
         <label>Email:</label>
-        <p>{{ booking.email }}</p>
+        <span>{{ booking.email }}</span>
     </div>
     <div>
         <label>Checked in:</label>
-        <p>{{ booking.checkedIn }}</p>
+        <span>{{ booking.checkedIn }}</span>
     </div>
   </div>
 </template>

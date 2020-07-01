@@ -6,18 +6,20 @@
 
 <script>
 import Booking from "./Booking.vue";
+import BookingsService from "../services/BookingsService.js"
 
 export default {
   data() {
     return {
-      bookings: []
+      bookings: undefined
     };
   },
   components: {
     Booking
   },
   mounted(){
-      //this.booking = something;
+      BookingsService.getBookings()
+      .then(data => this.bookings = data);
   }
 };
 </script>
