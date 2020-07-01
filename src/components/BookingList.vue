@@ -7,6 +7,7 @@
 <script>
 import Booking from "./Booking.vue";
 import BookingsService from "../services/BookingsService.js"
+import { eventBus } from "../main.js"
 
 export default {
   data() {
@@ -20,6 +21,10 @@ export default {
   mounted(){
       BookingsService.getBookings()
       .then(data => this.bookings = data);
+
+      eventBus.$on("booking-added", (booking) => {
+          this.bookings.push(booking)
+      })
   }
 };
 </script>
